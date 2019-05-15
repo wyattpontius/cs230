@@ -4,7 +4,11 @@ This repository contains the code for our CS 230: Deep Learning project from Sta
 
 Code and inspiration taken from the following repositories:
 https://github.com/pjreddie/darknet
+
 https://github.com/ChintanTrivedi/DeepGamingAI_FIFA
+
 https://github.com/Sentdex/pygta5
+
 https://github.com/kevinhughes27/TensorKart
+
 https://github.com/fqlx/XboxKeyboardMouse/tree/master/Downloads

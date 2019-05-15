@@ -3,6 +3,7 @@ This repository contains the code for our CS 230: Deep Learning project from Sta
 
 
 Code and inspiration taken from the following repositories:
+
 https://github.com/pjreddie/darknet
 
 https://github.com/ChintanTrivedi/DeepGamingAI_FIFA

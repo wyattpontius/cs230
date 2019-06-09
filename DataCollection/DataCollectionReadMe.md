@@ -1,0 +1,1 @@
+The DataCollection.py script utilizes the trained object detection network in parallel with a controller-polling thread to collect simultaneous data of what's happening on screen and what input is being pressed.

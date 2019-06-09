@@ -1,7 +1,7 @@
-from DeepBaller import DeepBaller
+from DecisionNetwork import DecisionNetwork
 import numpy as np
 
-model = DeepBaller()
+model = DecisionNetwork()
 
 MODEL_NAME = '2k_full_model'
 FRAME_KEEP = 10

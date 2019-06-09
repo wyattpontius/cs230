@@ -1,7 +1,7 @@
 import numpy as np
 import time
 import cv2
-from DeepBaller import DeepBaller
+from DecisionNetwork import DecisionNetwork
 from pydarknet import Detector, Image
 from pymouse import PyMouse
 from pykeyboard import PyKeyboard
@@ -17,7 +17,7 @@ net = Detector(bytes("/home/wyatt/darknet/cfg/yolov3-2K.cfg", encoding="utf-8"),
 
 cap = cv2.VideoCapture(0)
 
-model = DeepBaller()
+model = DecisionNetwork()
 
 model.load('/home/wyatt/full_model/zero_loss/full_model_all_data.tfl')
 

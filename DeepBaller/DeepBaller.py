@@ -10,30 +10,6 @@ OUTPUT_MOVE = 9
 OUTPUT_ACT = 5
 LR = 1e-3
 
-def DeepBallerMovement():
-    tflearn.init_graph(soft_placement = True)
-    with tf.device('/gpu:0'):
-        network = tflearn.input_data(shape=[None, FRAME_KEEP, FEATURES_LENGTH], name='input')
-        network = tflearn.gru(network, 256, return_seq=True, name='DBMove_layer1')
-        network = tflearn.dropout(network, 0.6, name='DBMove_layer2')
-        network = tflearn.gru(network, 256, return_seq=False, name='DBMove_layer3')
-        network = tflearn.dropout(network, 0.6, name='DBMove_layer4')
-        network = tflearn.fully_connected(network, OUTPUT_MOVE, activation='softmax', name='DBMove_layer5')
-        network = tflearn.regression(network, optimizer='adam', loss='categorical_crossentropy', learning_rate=LR, name='DBMove_layer6')
-        return tflearn.DNN(network, max_checkpoints=5, tensorboard_verbose=0, checkpoint_path = 'movement_model/movement_model.tfl.ckpt')
-    
-def DeepBallerAction():
-    tflearn.init_graph(soft_placement = True)
-    with tf.device('/gpu:0'):
-        network = tflearn.input_data(shape=[None, FRAME_KEEP, FEATURES_LENGTH], name='input')
-        network = tflearn.gru(network, 256, return_seq=True, name='DBAct_layer1')
-        network = tflearn.dropout(network, 0.6, name='DBAct_layer2')
-        network = tflearn.gru(network, 256, return_seq=False, name='DBAct_layer3')
-        network = tflearn.dropout(network, 0.6, name='DBAct_layer4')
-        network = tflearn.fully_connected(network, OUTPUT_ACT, activation='softmax', name='DBAct_layer5')
-        network = tflearn.regression(network, optimizer='adam', loss='categorical_crossentropy', learning_rate=LR, name='DBAct_layer6')
-        return tflearn.DNN(network, max_checkpoints=5, tensorboard_verbose=0, checkpoint_path = 'action_model/action_model.tfl.ckpt')
-    
 def DeepBaller():
     tflearn.init_graph(soft_placement = True)
     with tf.device('/gpu:0'):
@@ -78,8 +54,6 @@ def DataToLSTM(inputs, output_move, output_act):
         trainY_move = np.dstack((trainY_move, sampleY_move))
         trainY_act = np.dstack((trainY_act, sampleY_act))
         
-        
-
     trainX = np.swapaxes(trainX, 0, 2)
     trainY_move = np.swapaxes(trainY_move, 0, 2)
     trainY_act = np.swapaxes(trainY_act, 0, 2)

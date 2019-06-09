@@ -10,7 +10,7 @@ OUTPUT_MOVE = 9
 OUTPUT_ACT = 5
 LR = 1e-3
 
-def DeepBaller():
+def DecisionNetwork():
     tflearn.init_graph(soft_placement = True)
     with tf.device('/gpu:0'):
         network = tflearn.input_data(shape=[None, FRAME_KEEP, FEATURES_LENGTH], name='input')

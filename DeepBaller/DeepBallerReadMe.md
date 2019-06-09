@@ -1,0 +1,1 @@
+DeepBaller.py contains the decision-making network (DeepBaller) as well as the DataToLSTM function which reads in time-series data and transforms it into the necessary format for a neural network architecture with memory.
